@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture 2</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="../node_modules/angular/angular.min.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/week-three-controller.js"></script>
+    </head>
+
+<body>
+   
+
+   <h1>API_Flowers</h1>
+    <div ng-controller="flowerCtrl">
+      Search: <input ng-model="searchFlower" type="text">
+      <table>
+        <tr>
+          <th>No.</th>
+          <th>Flower</th>
+          <th>Tags</th>
+          <th>Image User</th>
+          <th>Name</th>
+          <th>Downloads:</th>
+        </tr>
+          <tr ng-repeat="image in images | filter:searchFlower">
+            <td>{{$index + 1}}</td>
+          <td><img ng-src="{{image.previewURL}}" /></td>
+          <td>{{ image.tags}}</td>
+         <td><img ng-src="{{ image.userImageURL}}"/></td>
+         <td>{{image.user}}</td>
+         <td>{{image.downloads}}</td>
+       
+        </tr>
+      </table>
+    </div>
+</body>
+</html>
